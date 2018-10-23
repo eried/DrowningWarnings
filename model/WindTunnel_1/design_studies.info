@@ -1,0 +1,7 @@
+<cfd_design_studies version="19.0.20180307" user_name="erwin">
+ <design_study instance_id="id_not_defined" name="WindTunnel_1" folder="D:\GitHub\DrowningWarnings\model/WindTunnel_1" study_id="3fdff80e-a75a-4f83-8416-267102d783fe">
+  <design launcher_type="CP_ASM_INVENTOR_IMPORT" name="Design 1" model_id="hull.cfdsmt" lock_status="false">
+   <analysis name="Scenario 1"/>
+  </design>
+ </design_study>
+</cfd_design_studies>

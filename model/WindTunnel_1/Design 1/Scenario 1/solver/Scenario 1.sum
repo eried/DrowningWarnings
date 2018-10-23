@@ -1,0 +1,126 @@
+﻿ *** CFD Summary File Output ***
+
+ CFD 2019 (2019 DevRB) [20180307]
+
+ Job Name = Scenario 1   Date created: Mon Oct 22 11:50:57 2018
+
+
+ *** Analysis Information 
+ Steady State is ON
+Turbulent Incompressible Flow is ON2 
+
+ *** Field Variable Results Summary For Iteration 100
+
+
+  Var      Mean          at      Max          at      Min
+ Vx Vel  +2.50374e+02  19845 +6.55995e+02  11200 -1.27523e+02 cm/s
+ Vy Vel  -4.12233e+00  24333 +1.58623e+02   6928 -2.23312e+02 cm/s
+ Vz Vel  +4.40898e-01   8524 +2.44975e+02   6931 -2.42308e+02 cm/s
+ Press  +1.04305e+01   1463 +2.21190e+02    578 -1.09285e+02 dyne/cm^2
+ Temp  +0.00000e+00    735 +0.00000e+00    673 +0.00000e+00 C
+ TurbK  +7.72180e+03   9392 +3.70477e+04    673 +1.81700e-07 cm^2/s^2
+ TurbD  +1.48112e+07    228 +4.24772e+08  22790 +1.06107e+02 cm^2/s^3
+ Scal1  +0.00000e+00    735 +0.00000e+00    673 +0.00000e+00  
+ PTotl  +7.60888e+01   6916 +2.67728e+02    578 -1.09285e+02 dyne/cm^2
+ EVisc  +4.05777e-03  16906 +6.82068e-01   3776 +0.00000e+00 g/cm-s
+ ECond  +3.83942e-03  16906 +6.82573e-01   3776 +0.00000e+00 W/cm-K
+ Dens  +1.85267e-03   3776 +2.70700e+00    673 +1.20473e-03 g/cm^3
+ Visc  +1.81656e-04    735 +1.81700e-04   3776 +0.00000e+00 g/cm-s
+ Cond  +7.44744e-04   3776 +2.04000e+00    673 +2.56300e-04 W/cm-K
+ SpecH  +1.00397e+00    735 +1.00400e+00   3776 +8.96000e-01 J/g-K
+ Emiss  +9.99761e-01    735 +1.00000e+00   3776 +0.00000e+00  
+ Transmiss  +0.00000e+00      0 +0.00000e+00      0 +0.00000e+00  
+ WRough  +0.00000e+00    735 +0.00000e+00    673 +0.00000e+00 cm
+ SeeBeck  +0.00000e+00      0 +0.00000e+00      0 +0.00000e+00 V/K
+ SHGC  +0.00000e+00      0 +0.00000e+00      0 +0.00000e+00 
+ Ufactor  +0.00000e+00      0 +0.00000e+00      0 +0.00000e+00 
+ GenT  +4.32776e+03    228 +3.82220e+04   3776 +3.16228e-02 1/s
+
+
+*** Openings ***
+
+
+          *** Inlet 1 ***
+
+  Surface ID = 17
+
+  Node near Minimum X,Y,Z of opening = 3541
+
+  Minimum X,Y,Z of opening = -6.103158, -2.812772, -1.131560
+
+     Mass Flow In             = 18.6498 g/s
+     Volume Flow In          = 15480.4 cm^3/s
+     Reynolds Number         = 18321.6
+     Inlet Bulk Pressure     = 59.3126 dyne/cm^2
+     Inlet Bulk Temperature  = 0 C
+     Inlet Mach Number       = 0.0137526
+
+  Total Mass Flow In     = 18.6498 g/s
+
+  Total Vol. Flow In     = 15480.4 cm^3/s
+
+
+         *** Outlet 1 ***
+
+  Surface ID = 15
+
+  Node near Minimum X,Y,Z of opening = 3217
+
+  Minimum X,Y,Z of opening = 13.567557, -0.254904, -0.405985
+
+     Mass Flow Out            = -18.6454 g/s
+  Volume Flow Out            = -15476.8 cm^3/s
+     Reynolds Number         = 18317.4
+     Outlet Bulk Pressure    = -0 dyne/cm^2
+     Outlet Bulk Temperature = -0 C
+     Outlet Mach Number      = 0.0120859
+
+  Total Mass Flow Out    = -18.6454 g/s
+
+  Total Vol. Flow Out    = -15476.8 cm^3/s
+
+
+          *** Statistics for Velocity Magnitude ***
+
+  Value Range [cm/s]             Percent Volume
+  0.000000 - 32.820624        1.594744
+  32.820624 - 65.641247        0.220637
+  65.641247 - 98.461871        0.245306
+  98.461871 - 131.282494        0.185054
+  131.282494 - 164.103118        0.164861
+  164.103118 - 196.923742        0.283606
+  196.923742 - 229.744365        0.436839
+  229.744365 - 262.564989        0.732378
+  262.564989 - 295.385613        0.497001
+  295.385613 - 328.206236        0.903403
+  328.206236 - 361.026860        1.726815
+  361.026860 - 393.847483        3.060032
+  393.847483 - 426.668107        3.681679
+  426.668107 - 459.488731        6.776216
+  459.488731 - 492.309354        13.424963
+  492.309354 - 525.129978        29.899571
+  525.129978 - 557.950601        13.090440
+  557.950601 - 590.771225        12.620135
+  590.771225 - 623.591849        8.698643
+  623.591849 - 656.412472        1.757678
+Mean Value = 255.832083 , Standard Deviation = 208.701201 
+
+
+*** Sum of Fluid Forces on Walls ***
+   ShearX, PressX =         1052        464.96   dynes
+   ShearY, PressY =        3.969       -2.1646   dynes
+   ShearZ, PressZ =    -0.060583       -2.7174   dynes
+
+*** Analysis Statistics: 
+
+ Input:                8 seconds 
+ Analysis:           279 seconds 
+ Output:               1 seconds 
+ Total:              288 seconds 
+
+ Master process dynamic memory 54 Mbytes
+ Slave process 0 dynamic memory 19 Mbytes
+ Slave process 1 dynamic memory 22 Mbytes
+ Slave process 2 dynamic memory 23 Mbytes
+ Slave process 3 dynamic memory 21 Mbytes
+ 
