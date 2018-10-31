@@ -1,7 +1,9 @@
 # DrowningWarnings
-**Goal:** Detect and predict dangerous movements using ML. Original idea was ignited by Mikael after he saw https://www.itromso.no/nyheter/2018/05/26/Utleieb%C3%A5t-gikk-ned-i-uv%C3%A6ret-polske-turister-berget-av-lokale-redningsmenn-16775134.ece
+The original idea was ignited by Mikael after he saw https://www.itromso.no/nyheter/2018/05/26/Utleieb%C3%A5t-gikk-ned-i-uv%C3%A6ret-polske-turister-berget-av-lokale-redningsmenn-16775134.ece 
 
-## Problem
+Tourists and inexperienced people have a hard time measuring the dangers while fishing. Our goal is to *detect and predict dangerous movements using ML*.  
+
+## First problem: Getting data
 Generate data in small scale using a controlled environment.
 
 ## Solution
