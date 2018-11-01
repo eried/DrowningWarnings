@@ -9,6 +9,7 @@ Generate data in small scale using a controlled environment.
 ## Solution
 Empirical training for the model in a low scale controlled environment. 
 
+
 ### Hull design
 The model is parametric:
 ![](images/parametric_hull.gif)
@@ -37,6 +38,7 @@ This is a quantifier of the resistance of the hull to a fluid environment. For e
 
 #### Results
 Placeholder for results
+
 
 ## Future work
 - Wave generation pool
