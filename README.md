@@ -37,7 +37,10 @@ This is a quantifier of the resistance of the hull to a fluid environment. For e
 ![](images/flow.gif)
 
 #### Results
-Placeholder for results
+
+| 1m radius        | 1.5m radius            | 2m radius   |
+| :-------------: |:-------------:| :-----:|
+| ![](output_for_simulation/small/hull_tip100_bottom1.png)|  ![](output_for_simulation/small/hull_tip100_bottom1.5.png) |  ![](output_for_simulation/small/hull_tip100_bottom2.png) |
 
 
 ## Future work
