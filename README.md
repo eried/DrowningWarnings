@@ -37,6 +37,7 @@ This is a quantifier of the resistance of the hull to a fluid environment. For e
 ![](images/flow.gif)
 
 #### Results
+For example changing the bottom radius of the hull changes the drag drastically
 
 | 1m radius        | 1.5m radius            | 2m radius   |
 | :-------------: |:-------------:| :-----:|
