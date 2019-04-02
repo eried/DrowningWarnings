@@ -1,0 +1,7 @@
+<cfd_design_studies version="19.1.20180819" user_name="erwin">
+ <design_study instance_id="baa22b67-3f77-492b-b695-df4e4600b590" name="Wave absorber" folder="D:\GitHub\DrowningWarnings\wave_simulator\wall/Wave absorber" study_id="546ec7c3-7eea-401f-a4f2-b7ace8256d42">
+  <design launcher_type="CP_ASM_INVENTOR_IMPORT" name="Design 1" model_id="flat_barrier.cfdsmt" lock_status="false">
+   <analysis name="Scenario 1"/>
+  </design>
+ </design_study>
+</cfd_design_studies>
