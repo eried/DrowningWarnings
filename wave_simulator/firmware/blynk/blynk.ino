@@ -5,9 +5,17 @@
 #include <Servo.h>
 #include "credentials.h"
 #include <EEPROM.h>
+#include "ServoEaser.h"
 
 Servo servoX, servoY1, servoY2;
+ServoEaser servoEaserX, servoEaserY1, servoEaserY2;
+const int servoFrameMillis = 20;  // minimum time between servo updates
+
 bool accelerometer = false;
+
+// Trim defaults
+int lowx = 72, highx = 125, lowy = 54, highy = 104, lowy2 = 48, highy2 = 101;
+double servo_x = map(50, 0, 100, lowx, highx), servo_y1 = map(50, 0, 100, lowy, highy), servo_y2 = map(50, 0, 100, lowy2, highy2);
 
 BLYNK_WRITE(V10)
 {
@@ -15,9 +23,9 @@ BLYNK_WRITE(V10)
   Serial.print("V10:");
   Serial.println(x);
 
-  servoX.write(x);
-  servoY1.write(x);
-  servoY2.write(x);
+  servo_x = x;
+  servo_y1 = x;
+  servo_y2 = x;
 }
 
 BLYNK_WRITE(V20)
@@ -34,9 +42,9 @@ BLYNK_WRITE(V20)
 
     if (accelerometer)
     {
-      servoX.write(param[0].asFloat());
-      servoY1.write(param[1].asFloat());
-      servoY2.write(param[1].asFloat());
+      servo_x = param[0].asFloat());
+      servo_y1 = param[1].asFloat());
+      servo_y2 = param[1].asFloat());
     }*/
 }
 
@@ -49,15 +57,10 @@ BLYNK_WRITE(V6)
   Serial.println("-------");
   //delay(1000);
 
-  servoX.write(x);
-  servoY1.write(y);
-  servoY2.write(y);
+  servo_x = x;
+  servo_y1 = y;
+  servo_y2 = y;
 }
-
-
-// Trim defaults
-int lowx = 54, highx = 145, lowy = 25, highy = 98, lowy2 = 34, highy2 = 114;
-
 
 BLYNK_WRITE(V11)
 {
@@ -66,41 +69,30 @@ BLYNK_WRITE(V11)
   Serial.print("V11:");
   Serial.println(x);
 
-  //servoY1.write(x);
-  //servoY2.write(x);
-  servoY1.write(map(x, 0, 100, lowy, highy));
-  servoY2.write(map(x, 0, 100, lowy2, highy2));
+  //servo_y1 = x;
+  //servo_y2 = x;
+  servo_y1 = map(x, 0, 100, lowy, highy);
+  servo_y2 = map(x, 0, 100, lowy2, highy2);
   Blynk.virtualWrite(V1, x);
   Blynk.virtualWrite(V2, x);
-}
-
-
-void sendDefaults()
-{
-  Blynk.virtualWrite(V40, lowx);
-  Blynk.virtualWrite(V41, highx);
-  Blynk.virtualWrite(V42, lowy);
-  Blynk.virtualWrite(V43, highy);
-  Blynk.virtualWrite(V44, lowy2);
-  Blynk.virtualWrite(V45, highy2);
 }
 
 // Sliders
 BLYNK_WRITE(V0)
 {
   int l = param.asInt();
-  servoX.write(map(l, 0, 100, lowx, highx));
+  servo_x = map(l, 0, 100, lowx, highx);
   //Blynk.virtualWrite(V3, l);
 }
 
 BLYNK_WRITE(V1)
 {
-  servoY1.write(map(param.asInt(), 0, 100, lowy, highy));
+  servo_y1 = map(param.asInt(), 0, 100, lowy, highy);
 }
 
 BLYNK_WRITE(V2)
 {
-  servoY2.write(map(param.asInt(), 0, 100, lowy2, highy2));
+  servo_y2 = map(param.asInt(), 0, 100, lowy2, highy2);
 }
 
 // Settings
@@ -136,14 +128,14 @@ BLYNK_WRITE(V45)
 
 BLYNK_WRITE(V50)
 {
-  servoX.write(param.asInt() ? lowx : highx);
+  servo_x = param.asInt() ? lowx : highx;
 }
 
 BLYNK_WRITE(V51)
 {
   int l = param.asInt();
-  servoY1.write(l ? lowy : highy);
-  servoY2.write(l ? lowy2 : highy2);
+  servo_y1 = l ? lowy : highy;
+  servo_y2 = l ? lowy2 : highy2;
 
   Blynk.virtualWrite(V53, l);
   Blynk.virtualWrite(V54, l);
@@ -151,21 +143,21 @@ BLYNK_WRITE(V51)
 
 BLYNK_WRITE(V53)
 {
-  servoY1.write(param.asInt() ? lowy : highy);
+  servo_y1 = param.asInt() ? lowy : highy;
 }
 
 BLYNK_WRITE(V54)
 {
-  servoY2.write(param.asInt() ? lowy2 : highy2);
+  servo_y2 = param.asInt() ? lowy2 : highy2;
 }
 
 // Activate both paddles
 BLYNK_WRITE(V52)
 {
   int l = param.asInt();
-  servoX.write(l ? lowx : highx);
-  servoY1.write(l ? lowy : highy);
-  servoY2.write(l ? lowy2 : highy2);
+  servo_x = l ? lowx : highx;
+  servo_y1 = l ? lowy : highy;
+  servo_y2 = l ? lowy2 : highy2;
 
   Blynk.virtualWrite(V50, l);
   Blynk.virtualWrite(V51, l);
@@ -175,17 +167,17 @@ BLYNK_WRITE(V52)
 
 BLYNK_WRITE(V3)
 {
-  servoX.write(param.asInt());
+  servo_x = param.asInt();
 }
 
 BLYNK_WRITE(V4)
 {
-  servoY1.write(param.asInt());
+  servo_y1 = param.asInt();
 }
 
 BLYNK_WRITE(V5)
 {
-  servoY2.write(param.asInt());
+  servo_y2 = param.asInt();
 }
 
 void setup()
@@ -199,14 +191,83 @@ void setup()
   //Blynk.begin(auth, ssid, pass, IPAddress(192,168,1,100), 8080);
 
   servoX.attach(4);
+  servoEaserX.begin( servoX, servoFrameMillis );
+
   servoY1.attach(2);
+  servoEaserY1.begin( servoY1, servoFrameMillis );
+
   servoY2.attach(0);
+  servoEaserY2.begin( servoY2, servoFrameMillis );
 
   Serial.println("Starting");
   sendDefaults();
 }
 
+double old_x = -1, old_y1 = -1, old_y2 = -1;
+int speed_x = 1000, speed_y = 1000;
+
+BLYNK_WRITE(V60)
+{
+  speed_x = param.asInt();
+}
+
+BLYNK_WRITE(V61)
+{
+  speed_y = param.asInt();
+}
+
+
+void sendDefaults()
+{
+  Blynk.virtualWrite(V40, lowx);
+  Blynk.virtualWrite(V41, highx);
+  Blynk.virtualWrite(V42, lowy);
+  Blynk.virtualWrite(V43, highy);
+  Blynk.virtualWrite(V44, lowy2);
+  Blynk.virtualWrite(V45, highy2);
+  Blynk.virtualWrite(V60, speed_x);
+  Blynk.virtualWrite(V61, speed_y);
+}
+
 void loop()
 {
   Blynk.run();
+
+  // Update the servos
+  if (servo_x != old_x)
+  {
+    if (speed_x <= servoFrameMillis)
+      servoX.write(servo_x);
+    else
+      servoEaserX.easeTo(servo_x, speed_x);
+    old_x = servo_x;
+  }
+
+  if (servo_y1 != old_y1)
+  {
+    if (speed_y <= servoFrameMillis)
+      servoY1.write(servo_y1);
+    else
+      servoEaserY1.easeTo(servo_y1, speed_y);
+    old_y1 = servo_y1;
+  }
+
+  if (servo_y2 != old_y2)
+  {
+    if (speed_y <= servoFrameMillis)
+      servoY2.write(servo_y2);
+    else
+      servoEaserY2.easeTo(servo_y2, speed_y);
+    old_y2 = servo_y2;
+  }
+
+  // Update the easing
+  if (speed_x > servoFrameMillis)
+    servoEaserX.update();
+
+  if (speed_y > servoFrameMillis)
+  {
+    servoEaserY1.update();
+    servoEaserY2.update();
+  }
 }
