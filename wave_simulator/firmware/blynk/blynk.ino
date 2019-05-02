@@ -216,6 +216,12 @@ BLYNK_WRITE(V61)
   speed_y = param.asInt();
 }
 
+int mode = 0;
+
+BLYNK_WRITE(V70)
+{
+  mode = param.asInt();
+}
 
 void sendDefaults()
 {
@@ -233,41 +239,75 @@ void loop()
 {
   Blynk.run();
 
-  // Update the servos
-  if (servo_x != old_x)
+  if (mode > 0)
   {
-    if (speed_x <= servoFrameMillis)
-      servoX.write(servo_x);
-    else
-      servoEaserX.easeTo(servo_x, speed_x);
-    old_x = servo_x;
-  }
+    int s1, s2;
 
-  if (servo_y1 != old_y1)
-  {
-    if (speed_y <= servoFrameMillis)
-      servoY1.write(servo_y1);
-    else
-      servoEaserY1.easeTo(servo_y1, speed_y);
-    old_y1 = servo_y1;
-  }
+    switch (mode)
+    {
+      case 1: s1 = 500; s2 = 1000; break;
+      case 2: s1 = 1000; s2 = 1000; break;
+      case 3: s1 = 500; s2 = 500; break;
+      case 4: s1 = 1000; s2 = 1000; break;
+      case 5: s1 = 200; s2 = 1000; break;
+      case 6: s1 = 1000; s2 = 200; break;
+      case 7: s1 = 200; s2 = 200; break;
+      case 8: s1 = 1000; s2 = 1000; break;
+      case 9: s1 = 3000; s2 = 100; break;
+      case 10: s1 = 100; s2 = 3000; break;
+      default: s1 = 100 + (25 * (mode - 10)); s2 = s1; break;
+    }
 
-  if (servo_y2 != old_y2)
-  {
-    if (speed_y <= servoFrameMillis)
-      servoY2.write(servo_y2);
-    else
-      servoEaserY2.easeTo(servo_y2, speed_y);
-    old_y2 = servo_y2;
-  }
+    int myServoMovesCountX = 2;
+    ServoMove myServoMovesX[] = {
+      // angle, duration
+      { lowx,  s1},
+      { highx,  s2},
+    };
 
-  // Update the easing
-  if (speed_x > servoFrameMillis)
+    if (servoEaserX.hasArrived())
+      servoEaserX.play( myServoMovesX, myServoMovesCountX );
     servoEaserX.update();
-
-  if (speed_y > servoFrameMillis)
+  }
+  else
   {
-    servoEaserY1.update();
-    servoEaserY2.update();
+
+    // Update the servos
+    if (servo_x != old_x)
+    {
+      if (speed_x <= servoFrameMillis)
+        servoX.write(servo_x);
+      else
+        servoEaserX.easeTo(servo_x, speed_x);
+      old_x = servo_x;
+    }
+
+    if (servo_y1 != old_y1)
+    {
+      if (speed_y <= servoFrameMillis)
+        servoY1.write(servo_y1);
+      else
+        servoEaserY1.easeTo(servo_y1, speed_y);
+      old_y1 = servo_y1;
+    }
+
+    if (servo_y2 != old_y2)
+    {
+      if (speed_y <= servoFrameMillis)
+        servoY2.write(servo_y2);
+      else
+        servoEaserY2.easeTo(servo_y2, speed_y);
+      old_y2 = servo_y2;
+    }
+
+    // Update the easing
+    if (speed_x > servoFrameMillis)
+      servoEaserX.update();
+
+    if (speed_y > servoFrameMillis)
+    {
+      servoEaserY1.update();
+      servoEaserY2.update();
+    }
   }
 }
