@@ -1,4 +1,4 @@
-void setup() {
+/*void setup() {
   // start the serial connection
   Serial.begin(9600);
   Serial.println("Starting");
@@ -72,4 +72,60 @@ void setup() {
   }
   Serial.println("card initialized.");
 
+  }*/
+
+void setup(void) {
+  DBG_OUTPUT_PORT.begin(9600);
+  DBG_OUTPUT_PORT.setDebugOutput(true);
+  DBG_OUTPUT_PORT.print("Configuring WiFi access point...");
+
+  /* You can remove the password parameter if you want the AP to be open. */
+  boolean result = WiFi.softAP(ssid, password);
+  if (result == true) {
+    IPAddress myIP = WiFi.softAPIP();
+
+    Serial.println("done!");
+    Serial.println("");
+    Serial.print("WiFi network name: ");
+    Serial.println(ssid);
+    Serial.print("WiFi network password: ");
+    Serial.println(password);
+    Serial.print("Host IP Address: ");
+    Serial.println(myIP);
+    Serial.println("");
+  }
+  else
+  {
+    Serial.println("error! Something went wrong...");
+  }
+
+  /*if (MDNS.begin(host)) {
+    MDNS.addService("http", "tcp", 80);
+    DBG_OUTPUT_PORT.println("MDNS responder started");
+    DBG_OUTPUT_PORT.print("You can now connect to http://");
+    DBG_OUTPUT_PORT.print(host);
+    DBG_OUTPUT_PORT.println(".local");
+  }
+*/
+
+  server.on("/list", HTTP_GET, printDirectory);
+  server.on("/edit", HTTP_DELETE, handleDelete);
+  server.on("/edit", HTTP_PUT, handleCreate);
+  server.on("/edit", HTTP_POST, []() {
+    returnOK();
+  }, handleFileUpload);
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+  DBG_OUTPUT_PORT.println("HTTP server started");
+
+  if (SD.begin(chipSelect)) {
+    DBG_OUTPUT_PORT.println("SD Card initialized.");
+    hasSD = true;
+  }
+}
+
+void loop() {
+  server.handleClient();
+ // MDNS.update();
 }

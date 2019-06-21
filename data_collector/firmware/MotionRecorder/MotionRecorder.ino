@@ -1,14 +1,18 @@
-#include <ESP8266WiFi.h>
 #include <Wire.h>
-#include <RtcDS1307.h>
-RtcDS1307<TwoWire> Rtc(Wire);
 #include <SPI.h>
 #include <SD.h>
+#include <ESP8266WiFi.h>
+#include <WiFiClient.h>
+#include <ESP8266WebServer.h>
+//#include <ESP8266mDNS.h>
+#include <RtcDS1307.h>
+
+#define DBG_OUTPUT_PORT Serial
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "Dualog-Guest";
-char pass[] = "Duatos14";
+//char ssid[] = "Dualog-Guest";
+//char pass[] = "Duatos14";
 
 
 // -------------------- SD ------------------------------------
@@ -44,6 +48,7 @@ int16_t AccelX, AccelY, AccelZ, Temperature, GyroX, GyroY, GyroZ;
 
 // -------------------- RTC ------------------------------------
 
+RtcDS1307<TwoWire> Rtc(Wire);
 #define countof(a) (sizeof(a) / sizeof(a[0]))
 
 void printDateTime(const RtcDateTime& dt)
