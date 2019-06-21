@@ -2,11 +2,21 @@
 #include <Wire.h>
 #include <RtcDS1307.h>
 RtcDS1307<TwoWire> Rtc(Wire);
+#include <SPI.h>
+#include <SD.h>
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
 char ssid[] = "Dualog-Guest";
 char pass[] = "Duatos14";
+
+
+// -------------------- SD ------------------------------------
+// change this to match your SD shield or module;
+// WeMos Micro SD Shield V1.0.0: D8
+// LOLIN Micro SD Shield V1.2.0: D4 (Default)
+const int chipSelect = D4;
+
 
 // -------------------- ACCELEROMETER/GYRO --------------------
 // MPU6050 Slave Device Address
@@ -32,7 +42,7 @@ const uint8_t MPU6050_REGISTER_SIGNAL_PATH_RESET  = 0x68;
 int16_t AccelX, AccelY, AccelZ, Temperature, GyroX, GyroY, GyroZ;
 //float Ax, Ay, Az, T, Gx, Gy, Gz;
 
-// -------------------- RTC --------------------
+// -------------------- RTC ------------------------------------
 
 #define countof(a) (sizeof(a) / sizeof(a[0]))
 

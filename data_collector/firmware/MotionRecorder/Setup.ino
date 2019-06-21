@@ -61,4 +61,15 @@ void setup() {
   // never assume the Rtc was last configured by you, so
   // just clear them to your needed state
   Rtc.SetSquareWavePin(DS1307SquareWaveOut_Low);
+
+  Serial.print("Initializing SD card...");
+
+  // see if the card is present and can be initialized:
+  if (!SD.begin(chipSelect)) {
+    Serial.println("Card failed, or not present");
+    // don't do anything more:
+    return;
+  }
+  Serial.println("card initialized.");
+
 }
