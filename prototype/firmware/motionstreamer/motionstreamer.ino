@@ -32,7 +32,7 @@ const uint8_t MPU6050_REGISTER_ACCEL_XOUT_H =  0x3B;
 const uint8_t MPU6050_REGISTER_SIGNAL_PATH_RESET  = 0x68;
 
 int16_t AccelX, AccelY, AccelZ, Temperature, GyroX, GyroY, GyroZ;
-float Ax, Ay, Az, T, Gx, Gy, Gz;
+//float Ax, Ay, Az, T, Gx, Gy, Gz;
 
 // A UDP instance to let us send and receive packets over UDP
 WiFiUDP Udp;
@@ -94,15 +94,14 @@ void loop()
 
     //delay(10);
   }
-
-  /* Serial.print("Ax:"); Serial.print(Ax);
-    Serial.print(" Ay:"); Serial.print(Ay);
-    Serial.print(" Az:"); Serial.print(Az);
-    Serial.print(" T:"); Serial.print(T);
-    Serial.print(" Gx:"); Serial.print(Gx);
-    Serial.print(" Gy:"); Serial.print(Gy);
-    Serial.print(" Gz:"); Serial.println(Gz);*/
-
+  Serial.print("time:"); Serial.print(millis());
+  Serial.print(",temp:"); Serial.print(tT);
+  Serial.print(",ax:"); Serial.print(tAx);
+  Serial.print(",ay:"); Serial.print(tAy);
+  Serial.print(",az:"); Serial.print(tAz);
+  Serial.print(",gx:"); Serial.print(tGx);
+  Serial.print(",gy:"); Serial.print(tGy);
+  Serial.print(",gz:"); Serial.println(tGz); //*/
 
   int packetSize = Udp.parsePacket();
   if (packetSize)
