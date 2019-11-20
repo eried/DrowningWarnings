@@ -44,30 +44,33 @@
             this.numericUpDownUDPPort = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownCurrentLine = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownDelay = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxInput = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxConversion = new System.Windows.Forms.GroupBox();
+            this.groupBoxOutput = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUDPPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCurrentLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelay)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxInput.SuspendLayout();
+            this.groupBoxConversion.SuspendLayout();
+            this.groupBoxOutput.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxInput
             // 
+            this.textBoxInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxInput.Location = new System.Drawing.Point(22, 44);
             this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(299, 20);
+            this.textBoxInput.Size = new System.Drawing.Size(350, 20);
             this.textBoxInput.TabIndex = 0;
-            this.textBoxInput.Text = "\r\nC:\\Users\\erwin\\Downloads\\all_data_unscaled.csv";
+            this.textBoxInput.Text = "C:\\Users\\erwin\\Downloads\\all_data_unscaled.csv";
             // 
             // buttonInputBrowse
             // 
-            this.buttonInputBrowse.Location = new System.Drawing.Point(327, 42);
+            this.buttonInputBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInputBrowse.Location = new System.Drawing.Point(378, 42);
             this.buttonInputBrowse.Name = "buttonInputBrowse";
             this.buttonInputBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonInputBrowse.TabIndex = 1;
@@ -81,25 +84,33 @@
             // 
             // textBoxUDPAddress
             // 
+            this.textBoxUDPAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUDPAddress.Location = new System.Drawing.Point(102, 26);
             this.textBoxUDPAddress.Name = "textBoxUDPAddress";
-            this.textBoxUDPAddress.Size = new System.Drawing.Size(219, 20);
+            this.textBoxUDPAddress.Size = new System.Drawing.Size(270, 20);
             this.textBoxUDPAddress.TabIndex = 2;
             this.textBoxUDPAddress.Text = "127.0.0.1";
             // 
             // textBoxRegexInput
             // 
+            this.textBoxRegexInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRegexInput.Location = new System.Drawing.Point(105, 38);
             this.textBoxRegexInput.Name = "textBoxRegexInput";
-            this.textBoxRegexInput.Size = new System.Drawing.Size(297, 20);
+            this.textBoxRegexInput.Size = new System.Drawing.Size(348, 20);
             this.textBoxRegexInput.TabIndex = 3;
+            this.textBoxRegexInput.Text = ".*?,(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),.*?,.*?,.*?,.*";
             // 
             // textBoxRegexOutput
             // 
+            this.textBoxRegexOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRegexOutput.Location = new System.Drawing.Point(105, 71);
             this.textBoxRegexOutput.Name = "textBoxRegexOutput";
-            this.textBoxRegexOutput.Size = new System.Drawing.Size(297, 20);
+            this.textBoxRegexOutput.Size = new System.Drawing.Size(348, 20);
             this.textBoxRegexOutput.TabIndex = 4;
+            this.textBoxRegexOutput.Text = "${4},${5},${6},${1},${2},${3}";
             // 
             // label1
             // 
@@ -130,8 +141,9 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 348);
+            this.label4.Location = new System.Drawing.Point(9, 382);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 5;
@@ -139,7 +151,8 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(278, 371);
+            this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStart.Location = new System.Drawing.Point(329, 405);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
             this.buttonStart.TabIndex = 1;
@@ -149,7 +162,8 @@
             // 
             // buttonStop
             // 
-            this.buttonStop.Location = new System.Drawing.Point(359, 371);
+            this.buttonStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStop.Location = new System.Drawing.Point(410, 405);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(75, 23);
             this.buttonStop.TabIndex = 1;
@@ -162,10 +176,13 @@
             this.backgroundWorkerSender.WorkerReportsProgress = true;
             this.backgroundWorkerSender.WorkerSupportsCancellation = true;
             this.backgroundWorkerSender.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerSender_DoWork);
+            this.backgroundWorkerSender.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkerSender_ProgressChanged);
+            this.backgroundWorkerSender.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerSender_RunWorkerCompleted);
             // 
             // numericUpDownUDPPort
             // 
-            this.numericUpDownUDPPort.Location = new System.Drawing.Point(327, 27);
+            this.numericUpDownUDPPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownUDPPort.Location = new System.Drawing.Point(378, 27);
             this.numericUpDownUDPPort.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -182,14 +199,31 @@
             // 
             // numericUpDownCurrentLine
             // 
-            this.numericUpDownCurrentLine.Location = new System.Drawing.Point(52, 374);
+            this.numericUpDownCurrentLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownCurrentLine.Location = new System.Drawing.Point(52, 408);
+            this.numericUpDownCurrentLine.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
             this.numericUpDownCurrentLine.Name = "numericUpDownCurrentLine";
             this.numericUpDownCurrentLine.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownCurrentLine.TabIndex = 6;
+            this.numericUpDownCurrentLine.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownDelay
             // 
-            this.numericUpDownDelay.Location = new System.Drawing.Point(52, 346);
+            this.numericUpDownDelay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownDelay.Location = new System.Drawing.Point(52, 380);
+            this.numericUpDownDelay.Maximum = new decimal(new int[] {
+            60000,
+            0,
+            0,
+            0});
             this.numericUpDownDelay.Name = "numericUpDownDelay";
             this.numericUpDownDelay.Size = new System.Drawing.Size(75, 20);
             this.numericUpDownDelay.TabIndex = 7;
@@ -199,17 +233,19 @@
             0,
             0});
             // 
-            // groupBox1
+            // groupBoxInput
             // 
-            this.groupBox1.Controls.Add(this.textBoxInput);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.buttonInputBrowse);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 93);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Input";
+            this.groupBoxInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxInput.Controls.Add(this.textBoxInput);
+            this.groupBoxInput.Controls.Add(this.label1);
+            this.groupBoxInput.Controls.Add(this.buttonInputBrowse);
+            this.groupBoxInput.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxInput.Name = "groupBoxInput";
+            this.groupBoxInput.Size = new System.Drawing.Size(473, 93);
+            this.groupBoxInput.TabIndex = 8;
+            this.groupBoxInput.TabStop = false;
+            this.groupBoxInput.Text = "Input";
             // 
             // label5
             // 
@@ -220,35 +256,41 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Regex Input:";
             // 
-            // groupBox2
+            // groupBoxConversion
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBoxRegexInput);
-            this.groupBox2.Controls.Add(this.textBoxRegexOutput);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 111);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 110);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Conversion";
+            this.groupBoxConversion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxConversion.Controls.Add(this.label5);
+            this.groupBoxConversion.Controls.Add(this.textBoxRegexInput);
+            this.groupBoxConversion.Controls.Add(this.textBoxRegexOutput);
+            this.groupBoxConversion.Controls.Add(this.label2);
+            this.groupBoxConversion.Location = new System.Drawing.Point(12, 111);
+            this.groupBoxConversion.Name = "groupBoxConversion";
+            this.groupBoxConversion.Size = new System.Drawing.Size(473, 144);
+            this.groupBoxConversion.TabIndex = 9;
+            this.groupBoxConversion.TabStop = false;
+            this.groupBoxConversion.Text = "Conversion";
             // 
-            // groupBox3
+            // groupBoxOutput
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBoxUDPAddress);
-            this.groupBox3.Controls.Add(this.numericUpDownUDPPort);
-            this.groupBox3.Location = new System.Drawing.Point(12, 227);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 100);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Output";
+            this.groupBoxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxOutput.Controls.Add(this.label3);
+            this.groupBoxOutput.Controls.Add(this.textBoxUDPAddress);
+            this.groupBoxOutput.Controls.Add(this.numericUpDownUDPPort);
+            this.groupBoxOutput.Location = new System.Drawing.Point(12, 261);
+            this.groupBoxOutput.Name = "groupBoxOutput";
+            this.groupBoxOutput.Size = new System.Drawing.Size(473, 100);
+            this.groupBoxOutput.TabIndex = 10;
+            this.groupBoxOutput.TabStop = false;
+            this.groupBoxOutput.Text = "Output";
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 376);
+            this.label6.Location = new System.Drawing.Point(9, 410);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 5;
@@ -258,12 +300,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 413);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(499, 447);
+            this.Controls.Add(this.groupBoxOutput);
+            this.Controls.Add(this.groupBoxConversion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxInput);
             this.Controls.Add(this.numericUpDownDelay);
             this.Controls.Add(this.numericUpDownCurrentLine);
             this.Controls.Add(this.buttonStop);
@@ -275,12 +317,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUDPPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCurrentLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDelay)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxInput.ResumeLayout(false);
+            this.groupBoxInput.PerformLayout();
+            this.groupBoxConversion.ResumeLayout(false);
+            this.groupBoxConversion.PerformLayout();
+            this.groupBoxOutput.ResumeLayout(false);
+            this.groupBoxOutput.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,10 +346,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDownUDPPort;
         private System.Windows.Forms.NumericUpDown numericUpDownCurrentLine;
         private System.Windows.Forms.NumericUpDown numericUpDownDelay;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxInput;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxConversion;
+        private System.Windows.Forms.GroupBox groupBoxOutput;
         private System.Windows.Forms.Label label6;
     }
 }

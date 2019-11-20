@@ -1,24 +1,25 @@
 import hypermedia.net.*;
-String HOST_IP = "192.168.4.179";//IP Address of the PC in which this App is running
+import peasy.*;
+
+PeasyCam cam;
+
+//String HOST_IP = "192.168.4.179";//IP Address of the PC in which this App is running
+
+String HOST_IP = "127.0.0.1";//IP Address of the PC in which this App is running
 int PORT_RX = 18000;
 UDP udp;//Create UDP object for recieving
 
 float yaw = 0.0, pitch = 0.0, roll = 0.0;
 
 PShape s;
+PImage bg;
 
 void setup()
 {
-  size(2000, 1500, P3D);
+  size(1920 , 1080, P3D);
+  bg = loadImage("camp.jpg");
   s = loadShape("hull.obj");
-
-  // if you have only ONE serial port active
-  //myPort = new Serial(this, Serial.list()[0], 9600); // if you have only ONE serial port active
-
-  // if you know the serial port name
-  //myPort = new Serial(this, "COM5:", 9600);                    // Windows
-  //myPort = new Serial(this, "/dev/ttyACM0", 9600);             // Linux
-  //myPort = new Serial(this, "/dev/cu.usbmodem1217321", 9600);  // Mac
+    cam = new PeasyCam(this, 50);
 
   textSize(16); // set text size
   textMode(SHAPE); // set text mode to shape
@@ -55,7 +56,8 @@ void receive( byte[] data ) {
 
 void draw()
 { 
-  background(255); // set background to white
+  
+  background(bg); // set background to white
   lights();
 
   translate(width/2, height/2); // set position to centre
